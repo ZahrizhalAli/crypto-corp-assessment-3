@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home {
+  padding-top: 110px;
+}
+
+.market-overview-headline,
+.market-ov-buy,
+.market-ov-sell {
+  display: flex;
+}
+.market-overview-headline .text-sell {
+  color: red;
+  margin: 0 15px;
+}
+.market-overview-headline .text-buy {
+  color: green;
+  margin: 0 10px;
+}
+
+.market-table::-webkit-scrollbar {
+  display: none;
+}

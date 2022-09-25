@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Navbar() {
+function Navbar({ title }) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-absolute navbar-transparent   ">
@@ -14,7 +14,7 @@ function Navbar() {
               </button>
             </div>
             <a className="navbar-brand" href="#pablo">
-              Crypto Corp.
+              {title}
             </a>
           </div>
           <button
@@ -69,44 +69,6 @@ function Navbar() {
                   className="dropdown-toggle nav-link"
                   data-toggle="dropdown"
                 >
-                  <div className="notification d-none d-lg-block d-xl-block"></div>
-                  <i className="tim-icons icon-sound-wave"></i>
-                  <p className="d-lg-none">New Notifications</p>
-                </a>
-                <ul className="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Mike John responded to your email
-                    </a>
-                  </li>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      You have 5 more tasks
-                    </a>
-                  </li>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Your friend Michael is in town
-                    </a>
-                  </li>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Another notification
-                    </a>
-                  </li>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Another one
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="dropdown nav-item">
-                <a
-                  href="#"
-                  className="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
                   <div className="photo">
                     <img src="../assets/img/anime3.png" />
                   </div>
@@ -115,8 +77,8 @@ function Navbar() {
                 </a>
                 <ul className="dropdown-menu dropdown-navbar">
                   <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Profile
+                    <a href="/dashboard" className="nav-item dropdown-item">
+                      Dashboard
                     </a>
                   </li>
                   <li className="nav-link">
