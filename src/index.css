@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -14,6 +18,27 @@ code {
 
 .home {
   padding-top: 110px;
+}
+.home-left-container {
+  padding-left: 5%;
+}
+
+.home-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.card-home-right {
+  background: rgb(170, 34, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(170, 34, 195, 1) 0%,
+    rgba(253, 45, 94, 1) 100%
+  );
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
 }
 
 .market-overview-headline,
@@ -32,4 +57,23 @@ code {
 
 .market-table::-webkit-scrollbar {
   display: none;
+}
+
+.sidebar-items p {
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.sidebar-items .sidebar-icons {
+  margin-right: 5px;
+}
+
+.market-table .text-price-red {
+  color: red;
+}
+
+.market-table .text-price-green {
+  color: green;
 }

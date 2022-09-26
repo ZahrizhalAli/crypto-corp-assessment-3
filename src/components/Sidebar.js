@@ -1,4 +1,12 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faWallet,
+  faDollarSign,
+  faArrowRightArrowLeft,
+  faChartColumn,
+  faBarcode,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar() {
   return (
@@ -10,35 +18,57 @@ function Sidebar() {
               Crypto Corp.
             </a>
           </div>
-          <ul className="nav">
+          <ul className="nav sidebar-items">
             <li>
               <a href="/dashboard/portfolio">
-                <i className="tim-icons icon-chart-pie-36"></i>
-                <p>Portfolio</p>
+                <p>
+                  <FontAwesomeIcon className="sidebar-icons" icon={faWallet} />
+                  Portfolio
+                </p>
               </a>
             </li>
             <li>
               <a href="/dashboard/transactions">
-                <i className="tim-icons icon-chart-pie-36"></i>
-                <p>Transactions</p>
+                <p>
+                  {' '}
+                  <FontAwesomeIcon className="sidebar-icons" icon={faBarcode} />
+                  Transactions
+                </p>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="tim-icons icon-chart-pie-36"></i>
-                <p>Trading</p>
+                <p>
+                  {' '}
+                  <FontAwesomeIcon
+                    className="sidebar-icons"
+                    icon={faDollarSign}
+                  />{' '}
+                  Trading
+                </p>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="tim-icons icon-chart-pie-36"></i>
-                <p>Exchange</p>
+                <p>
+                  {' '}
+                  <FontAwesomeIcon
+                    className="sidebar-icons"
+                    icon={faArrowRightArrowLeft}
+                  />
+                  Exchange
+                </p>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="tim-icons icon-chart-pie-36"></i>
-                <p>Market Capital</p>
+                <p>
+                  <FontAwesomeIcon
+                    className="sidebar-icons"
+                    icon={faChartColumn}
+                  />
+                  Market Capital
+                </p>
               </a>
             </li>
           </ul>

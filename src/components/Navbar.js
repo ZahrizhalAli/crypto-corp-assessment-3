@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar({ title }) {
   return (
@@ -13,7 +15,7 @@ function Navbar({ title }) {
                 <span className="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a className="navbar-brand" href="#pablo">
+            <a className="navbar-brand" href="/">
               {title}
             </a>
           </div>
@@ -59,7 +61,10 @@ function Navbar({ title }) {
                   data-toggle="modal"
                   data-target="#searchModal"
                 >
-                  <i className="tim-icons icon-zoom-split"></i>
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    style={{ fontSize: '25px' }}
+                  />
                 </button>
               </div>
 

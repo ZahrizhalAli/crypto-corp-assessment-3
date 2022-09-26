@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import { getCoinHistories } from '../functions/requests';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 
 function Portfolio() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getCoinHistories(5).then((res) => {
+      setData(res.data);
+    });
+  }, []);
   return (
     <>
       <Sidebar />
@@ -50,28 +60,48 @@ function Portfolio() {
                         <th className="text-center">Report</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td className="text-center">Bitcoin</td>
-                          <td className="text-center">$1,234</td>
-                          <td className="text-center">
-                            <p className="text-buy">1.54</p>
-                          </td>
-                          <td className="text-center">
-                            <a href="/">
-                              <i className="tim-icons icon-chart-pie-36"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="text-center">Bitcoin</td>
-                          <td className="text-center">$1,234</td>
-                          <td className="text-center">$36,738</td>
-                          <td className="text-center">
-                            <a href="/">
-                              <i className="tim-icons icon-chart-pie-36"></i>
-                            </a>
-                          </td>
-                        </tr>
+                        {data &&
+                          data.map((coin, index) => {
+                            return (
+                              <tr key={index}>
+                                <td className="text-center">
+                                  {' '}
+                                  <div className="photo">
+                                    <img src={coin.image} />
+                                  </div>
+                                  {coin.name}
+                                </td>
+                                <td className="text-center">
+                                  ${coin.current_price}
+                                </td>
+                                <td className="text-center">
+                                  <p
+                                    className={`text-center ${
+                                      coin.market_cap_change_percentage_24h > 0
+                                        ? 'text-price-green'
+                                        : 'text-price-red'
+                                    }`}
+                                  >
+                                    {coin.market_cap_change_percentage_24h.toFixed(
+                                      4
+                                    )}
+                                    %
+                                  </p>
+                                </td>
+                                <td className="text-center">
+                                  <a href="/">
+                                    <FontAwesomeIcon
+                                      style={{
+                                        color: 'white',
+                                        fontSize: '20px',
+                                      }}
+                                      icon={faFileInvoice}
+                                    />
+                                  </a>
+                                </td>
+                              </tr>
+                            );
+                          })}
                       </tbody>
                     </table>
                   </div>

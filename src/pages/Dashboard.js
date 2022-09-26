@@ -1,8 +1,10 @@
-import React, { lazy } from 'react';
+import React, { useEffect, useState } from 'react';
 import MarketSmallCard from '../components/MarketSmallCard';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-
+import axios from 'axios';
+import { getCoinHistories } from '../functions/requests';
+import MarketOverviewCard from '../components/MarketOverviewCard';
 function Dashboard() {
   return (
     <>
@@ -16,7 +18,7 @@ function Dashboard() {
                 <div className="card-header ">
                   <div className="row">
                     <div className="col-sm-6 text-left">
-                      <h2 className="card-title">Market Overview</h2>
+                      <h2 className="card-title">Market Overview </h2>
                       <div className="market-overview-headline">
                         <div className="market-ov-buy">
                           <p className="text-buy">BUY</p>
@@ -91,35 +93,7 @@ function Dashboard() {
               />
             </div>
             <div className="col-lg-4">
-              <div className="card">
-                <div className="card-header ">
-                  <h4 className="card-title">Market Overview</h4>
-                </div>
-                <div className="card-body ">
-                  <div className="table-responsive market-table">
-                    <table className="table tablesorter " id="">
-                      <thead style={{ color: 'white' }}>
-                        <th className="text-center">Coin</th>
-                        <th className="text-center">Last Price</th>
-
-                        <th className="text-center">Change</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="text-center">Bitcoin</td>
-                          <td className="text-center">$1,234</td>
-                          <td className="text-center">$36,738</td>
-                        </tr>
-                        <tr>
-                          <td className="text-center">Bitcoin</td>
-                          <td className="text-center">$1,234</td>
-                          <td className="text-center">$36,738</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              <MarketOverviewCard />
             </div>
             <div className="col-lg-4">
               <MarketSmallCard
