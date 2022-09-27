@@ -162,7 +162,7 @@ function Home({ history }) {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Username"
+                            placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -175,7 +175,7 @@ function Home({ history }) {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Username"
+                            placeholder="First Name"
                             value={firstname}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
@@ -188,7 +188,7 @@ function Home({ history }) {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Username"
+                            placeholder="Last Name"
                             value={lastname}
                             onChange={(e) => setLastName(e.target.value)}
                             required
