@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
+import { useHistory } from 'react-router-dom';
 function Navbar({ title }) {
+  const [user, setUser] = useState('');
+  let history = useHistory();
+
+  useEffect(() => {
+    if (window.localStorage.getItem('userEmail')) {
+      setUser(window.localStorage.getItem('userEmail'));
+    }
+  }, []);
+
+  function handleLogout(event) {
+    event.preventDefault();
+    window.localStorage.removeItem('userEmail');
+    history.push('/');
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-absolute navbar-transparent   ">
@@ -67,38 +81,45 @@ function Navbar({ title }) {
                   />
                 </button>
               </div>
-
-              <li className="dropdown nav-item">
-                <a
-                  href="#"
-                  className="dropdown-toggle nav-link"
-                  data-toggle="dropdown"
-                >
-                  <div className="photo">
-                    <img src="../assets/img/anime3.png" />
-                  </div>
-                  <b className="caret d-none d-lg-block d-xl-block"></b>
-                  <p className="d-lg-none">Log out</p>
-                </a>
-                <ul className="dropdown-menu dropdown-navbar">
-                  <li className="nav-link">
-                    <a href="/dashboard" className="nav-item dropdown-item">
-                      Dashboard
+              {user && (
+                <>
+                  <li className="dropdown nav-item">
+                    <a
+                      href="#"
+                      className="dropdown-toggle nav-link"
+                      data-toggle="dropdown"
+                    >
+                      <div className="photo">
+                        <img src="../assets/img/anime3.png" />
+                      </div>
+                      <b className="caret d-none d-lg-block d-xl-block"></b>
+                      <p className="d-lg-none">Log out</p>
                     </a>
+                    <ul className="dropdown-menu dropdown-navbar">
+                      <li className="nav-link">
+                        <a href="/dashboard" className="nav-item dropdown-item">
+                          Dashboard
+                        </a>
+                      </li>
+                      <li className="nav-link">
+                        <a href="#" className="nav-item dropdown-item">
+                          Settings
+                        </a>
+                      </li>
+                      <div className="dropdown-divider"></div>
+                      <li className="nav-link">
+                        <a
+                          href="#"
+                          className="nav-item dropdown-item"
+                          onClick={handleLogout}
+                        >
+                          Log out
+                        </a>
+                      </li>
+                    </ul>
                   </li>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Settings
-                    </a>
-                  </li>
-                  <div className="dropdown-divider"></div>
-                  <li className="nav-link">
-                    <a href="#" className="nav-item dropdown-item">
-                      Log out
-                    </a>
-                  </li>
-                </ul>
-              </li>
+                </>
+              )}
               <li className="separator d-lg-none"></li>
             </ul>
           </div>

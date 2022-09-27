@@ -30,48 +30,6 @@ function Dashboard() {
                         </div>
                       </div>
                     </div>
-
-                    <div className="col-sm-6">
-                      <div
-                        className="btn-group btn-group-toggle float-right"
-                        data-toggle="buttons"
-                      >
-                        <label
-                          className="btn btn-sm btn-primary btn-simple active"
-                          id="0"
-                        >
-                          <input
-                            type="radio"
-                            name="options"
-                            autocomplete="off"
-                            checked
-                          />{' '}
-                          Accounts
-                        </label>
-                        <label
-                          className="btn btn-sm btn-primary btn-simple "
-                          id="1"
-                        >
-                          <input
-                            type="radio"
-                            name="options"
-                            autocomplete="off"
-                          />{' '}
-                          Purchases
-                        </label>
-                        <label
-                          className="btn btn-sm btn-primary btn-simple "
-                          id="2"
-                        >
-                          <input
-                            type="radio"
-                            name="options"
-                            autocomplete="off"
-                          />{' '}
-                          Sessions
-                        </label>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div className="card-body">
